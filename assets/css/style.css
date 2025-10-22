@@ -68,3 +68,48 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
 }
+
+/* ===== LUXURY HEADER STYLING ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000; /* deep black header */
+  border-bottom: 1px solid #D4AF37; /* gold line */
+  padding: 10px 0;
+  z-index: 1000; /* keeps it on top */
+}
+
+/* Navbar layout */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centers logo */
+  position: relative;
+}
+
+/* Menu button (☰ icon) */
+.menu-btn {
+  position: absolute;
+  left: 20px; /* puts it in the corner */
+  background: none;
+  border: none;
+  color: #D4AF37;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Logo styling */
+.logo {
+  height: 60px; /* smaller logo height */
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Push content below the fixed header */
+body {
+  margin: 0;
+  padding-top: 80px; /* keeps content from hiding behind header */
+}
