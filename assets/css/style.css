@@ -157,8 +157,8 @@ body {
   text-align: center;
   font-size: 28px;
   color: #D4AF37;
-  letter-spacing: 2px
-  margin-bottom: 30px; /* matches the visual gap below */
+  letter-spacing: 2px;
+  margin-bottom: 40px; /* matches the visual gap below */
   text-transform: uppercase;
 }
 
