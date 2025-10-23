@@ -71,14 +71,17 @@ footer {
 
 /* ===== LUXURY HEADER WITH MENU & SEARCH ===== */
 header {
+/* ===== LUXURY GRADIENT HEADER ===== */
+header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #000;
+  background: linear-gradient(to right, #16302B, #1E3E36); /* subtle luxury gradient */
   border-bottom: 1px solid #D4AF37;
   padding: 10px 0;
   z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* optional subtle depth */
 }
 
 .navbar {
