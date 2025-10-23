@@ -295,19 +295,57 @@ body {
 
 /* ===== FOOTER ===== */
 footer {
-  text-align: center;              /* centers all text */
-  background-color: #000;          /* optional – solid black footer */
-  color: #D4AF37;                  /* luxury gold text */
-  padding: 40px 0;                 /* space top and bottom */
+  text-align: center;
+  background: linear-gradient(to right, #0d1a18, #16302B);
+  color: #D4AF37;
+  padding: 40px 0 30px;
   font-size: 14px;
-  letter-spacing: 1px;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 footer p {
-  margin: 8px 0;                   /* even spacing between lines */
+  margin-bottom: 15px;
+  color: #ccc;
 }
 
-footer p:last-child {
-  color: #aaa;                     /* softer gray tone for © line */
-  font-size: 13px;
+footer .socials {
+  margin-top: 10px;
+}
+
+footer .socials a {
+  color: #D4AF37;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+footer .socials a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #D4AF37;
+}
+
+/* ===== ABOUT & CONTACT SECTIONS ===== */
+section#about, 
+section#contact {
+  text-align: center;
+  color: #fff;
+  background-color: #0d1a18; /* deep elegant background (matches header tone) */
+  padding: 80px 20px;
+}
+
+section#about h2, 
+section#contact h2 {
+  color: #D4AF37; /* luxury gold section titles */
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+section#about p, 
+section#contact p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 15px;
+  color: #ccc;
 }
