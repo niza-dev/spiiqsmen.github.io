@@ -100,8 +100,8 @@ header {
   left: 20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 18px;   /* smaller width */
-  height: 12px;  /* smaller height */
+  width: 16px;   /* smaller width */
+  height: 10px;  /* smaller height */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -133,7 +133,7 @@ header {
 
 /* ===== Logo ===== */
 .logo {
-  height: 55px;
+  height: 57px;
   width: auto;
   display: block;
   margin: 0 auto;
@@ -142,7 +142,7 @@ header {
 /* Add spacing for fixed header */
 body {
   margin: 0;
-  padding-top: 80px;
+  padding-top: 40px;
 }
 
 /* ===== CATALOG SECTION ===== */
@@ -150,7 +150,7 @@ body {
   background: url('assets/img/bgpattern.jpg') no-repeat center center/cover;
   background-attachment: fixed;
   color: #fff;
-  padding: 60px 0 60px 0; /* top, right, bottom, left */
+  padding: 40px 0 40px 0; /* top, right, bottom, left */
 }
 
 .catalog h2 {
@@ -158,7 +158,7 @@ body {
   font-size: 28px;
   color: #D4AF37;
   letter-spacing: 2px;
-  margin-bottom: 40px; /* matches the visual gap below */
+  margin-bottom: 30px; /* matches the visual gap below */
   text-transform: uppercase;
 }
 
@@ -166,7 +166,7 @@ body {
 .catalog .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  gap: 10px;
 }
 
 /* Each item card */
@@ -182,7 +182,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  filter: brightness(60%) blur(0px); /* darkness + soft blur */
+  filter: brightness(70%) blur(0px); /* darkness + soft blur */
   transition: all 0.4s ease;
 }
 
@@ -236,8 +236,8 @@ body {
 .side-menu {
   position: fixed;
   top: 0;
-  left: -250px; /* hidden off-screen initially */
-  width: 250px;
+  left: -220px; /* hidden off-screen initially */
+  width: 220px;
   height: 100%;
   background-color: #16302B;
   border-right: 1px solid rgba(212, 175, 55, 0.3);
