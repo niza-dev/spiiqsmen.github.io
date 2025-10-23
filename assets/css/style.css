@@ -150,15 +150,15 @@ body {
   background: url('assets/img/bgpattern.jpg') no-repeat center center/cover;
   background-attachment: fixed;
   color: #fff;
-  padding: 60px 0 40px 0; /* top, right, bottom, left */
+  padding: 60px 0 60px 0; /* top, right, bottom, left */
 }
 
 .catalog h2 {
   text-align: center;
   font-size: 28px;
-  letter-spacing: 2px
   color: #16302B;
-  margin-bottom: 60px; /* matches the visual gap below */
+  letter-spacing: 2px
+  margin-bottom: 80px; /* matches the visual gap below */
   text-transform: uppercase;
 }
 
