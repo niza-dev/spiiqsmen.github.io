@@ -149,7 +149,7 @@ body {
 .catalog {
   text-align: center;
   padding: 60px 20px;
-  background-color: #0B0B0B;
+  background-color: #16302B;
 }
 
 .catalog h2 {
@@ -180,7 +180,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  filter: brightness(60%) blur(1px); /* darkness + soft blur */
+  filter: brightness(60%) blur(0px); /* darkness + soft blur */
   transition: all 0.4s ease;
 }
 
