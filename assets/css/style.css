@@ -325,24 +325,24 @@ footer .socials a:hover {
 }
 
 /* ===== ABOUT & CONTACT SECTIONS ===== */
-section#about, 
-section#contact {
+.about, 
+.contact {
   text-align: center;
   color: #fff;
-  background-color: #0d1a18; /* deep elegant background (matches header tone) */
+  background-color: #0d1a18;
   padding: 80px 20px;
 }
 
-section#about h2, 
-section#contact h2 {
-  color: #D4AF37; /* luxury gold section titles */
+.about h2, 
+.contact h2 {
+  color: #D4AF37;
   letter-spacing: 2px;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
 
-section#about p, 
-section#contact p {
+.about p, 
+.contact p {
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.7;
