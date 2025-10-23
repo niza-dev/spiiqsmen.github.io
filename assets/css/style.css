@@ -19,6 +19,11 @@ header {
   border-bottom: 1px solid #D4AF37;
 }
 
+header:hover {
+  background: linear-gradient(to right, #1E3E36, #16302B);
+  transition: background 1s ease;
+}
+
 button, .btn {
   background: #D4AF37;
   color: #000;
@@ -69,8 +74,6 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ===== LUXURY HEADER WITH MENU & SEARCH ===== */
-header {
 /* ===== LUXURY GRADIENT HEADER ===== */
 header {
   position: fixed;
