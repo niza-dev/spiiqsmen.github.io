@@ -69,54 +69,71 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ===== LUXURY HEADER STYLING ===== */
+/* ===== LUXURY HEADER WITH MENU & SEARCH ===== */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #000; /* deep black header */
-  border-bottom: 1px solid #D4AF37; /* gold line */
+  background-color: #000;
+  border-bottom: 1px solid #D4AF37;
   padding: 10px 0;
-  z-index: 1000; /* keeps it on top */
+  z-index: 1000;
 }
 
-/* Navbar layout */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: center; /* centers logo */
+  justify-content: center;
   position: relative;
 }
 
-/* Menu button (☰ icon) */
+/* ===== Menu button (two thin gold lines) ===== */
 .menu-btn {
   position: absolute;
-  left: 20px; /* puts it in the corner */
+  left: 20px;
+  width: 28px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: none;
   border: none;
-  color: #D4AF37;
-  font-size: 24px;
   cursor: pointer;
 }
 
-/* Logo styling */
+.menu-btn span {
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background-color: #D4AF37; /* gold */
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* ===== Search button ===== */
+.search-btn {
+  position: absolute;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #D4AF37;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ===== Logo ===== */
 .logo {
-  height: 60px; /* smaller logo height */
+  height: 55px;
   width: auto;
   display: block;
   margin: 0 auto;
 }
 
-/* Push content below the fixed header */
+/* Add spacing for fixed header */
 body {
   margin: 0;
-  padding-top: 80px; /* keeps content from hiding behind header */
-}
-
-header {
-  backdrop-filter: blur(10px);
-  background-color: rgba(0,0,0,0.8);
+  padding-top: 80px;
 }
 
 /* ===== CATALOG SECTION ===== */
