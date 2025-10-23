@@ -291,3 +291,22 @@ body {
   opacity: 0;
   visibility: visible;
 }
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;              /* centers all text */
+  background-color: #000;          /* optional – solid black footer */
+  color: #D4AF37;                  /* luxury gold text */
+  padding: 40px 0;                 /* space top and bottom */
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+footer p {
+  margin: 8px 0;                   /* even spacing between lines */
+}
+
+footer p:last-child {
+  color: #aaa;                     /* softer gray tone for © line */
+  font-size: 13px;
+}
