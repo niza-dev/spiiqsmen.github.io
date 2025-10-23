@@ -113,3 +113,8 @@ body {
   margin: 0;
   padding-top: 80px; /* keeps content from hiding behind header */
 }
+
+header {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0,0.8);
+}
