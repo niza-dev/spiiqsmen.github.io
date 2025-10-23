@@ -156,9 +156,9 @@ body {
 .catalog h2 {
   text-align: center;
   font-size: 28px;
-  color: #16302B;
+  color: #D4AF37;
   letter-spacing: 2px
-  margin-bottom: 80px; /* matches the visual gap below */
+  margin-bottom: 30px; /* matches the visual gap below */
   text-transform: uppercase;
 }
 
