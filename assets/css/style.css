@@ -88,26 +88,29 @@ header {
   position: relative;
 }
 
-/* ===== Menu button (two thin gold lines) ===== */
+/* ===== FIXED MENU BUTTON (2 thin gold lines) ===== */
 .menu-btn {
   position: absolute;
   left: 20px;
-  width: 28px;
-  height: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: none;
   border: none;
+  padding: 0;
   cursor: pointer;
+  z-index: 2000;
 }
 
 .menu-btn span {
   display: block;
-  height: 1.5px;
   width: 100%;
-  background-color: #D4AF37; /* gold */
-  transition: all 0.3s ease;
+  height: 1.5px;
+  background-color: #D4AF37;
   border-radius: 2px;
 }
 
