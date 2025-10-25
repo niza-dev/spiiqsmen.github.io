@@ -257,3 +257,49 @@ footer {
   font-size: 14px;
   border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Basic page styling same as before ... */
+
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 20, 20, 0.8);
+  display: none;
+  z-index: 800;
+  backdrop-filter: blur(4px);
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: #0d1a18;
+  border: 1px solid #D4AF37;
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.search-bar.active {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
