@@ -74,6 +74,16 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Gold divider line between About Us and Contact Us */
+.gold-line {
+  border: none;
+  height: 2px;
+  background: #A38560; /* Gold color */
+  width: 80%;
+  margin: 40px auto;
+  border-radius: 2px;
+}
+
 /* ===== LUXURY GRADIENT HEADER ===== */
 header {
   position: fixed;
@@ -231,16 +241,6 @@ body {
 .catalog .item:nth-child(1) { transition-delay: 0.1s; }
 .catalog .item:nth-child(2) { transition-delay: 0.25s; }
 .catalog .item:nth-child(3) { transition-delay: 0.4s; }
-
-/* Gold divider line between About Us and Contact Us */
-.gold-line {
-  border: none;
-  height: 2px;
-  background: #A38560; /* Gold color */
-  width: 80%;
-  margin: 40px auto;
-  border-radius: 2px;
-}
 
 /* ===== SLIDING SIDE MENU ===== */
 .side-menu {
