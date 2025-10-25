@@ -10,16 +10,18 @@
 </head>
   
 <body>
+
 <!-- HEADER -->
 <header>
   <!-- ===== SLIDING MENU PANEL ===== -->
-<nav class="side-menu">
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact Us</a></li>
-  </ul>
-</nav>
+  <nav class="side-menu">
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+
   <div class="navbar">
     <button class="menu-btn" aria-label="Menu">
       <span></span>
@@ -29,84 +31,54 @@
     <img src="assets/img/transparentlogo.png" alt="SPIIQS MEN" class="logo">
 
     <button class="search-btn" aria-label="Search">
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-    <circle cx="11" cy="11" r="8"></circle>
-    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-  </svg>
-</button>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
   </div>
 </header>
-  
-  <section class="catalog">
-    <h2>Spiiqs men</h2>
-    <div class="grid">
-      <div class="item">
-        <img src="assets/img/navy.jpg" alt="Suits" />
-        <p>Suits</p>
-      </div>
-      <div class="item">
-        <img src="assets/img/oxford.jpg" alt="Oxfords" />
-        <p>Oxfords</p>
-      </div>
-      <div class="item">
-        <img src="assets/img/shirt.jpg" alt="Shirts" />
-        <p>Shirts</p>
-      </div>
-      <div class="item">
-        <img src="assets/img/accessories.jpg" alt="Accessories" />
-        <p>Accessories</p>
-      </div>
+
+<!-- HOME / CATALOG -->
+<section id="home" class="catalog">
+  <h2>Spiiqs Men</h2>
+  <div class="grid">
+    <div class="item">
+      <img src="assets/img/navy.jpg" alt="Suits" />
+      <p>Suits</p>
     </div>
-  </section>
+    <div class="item">
+      <img src="assets/img/oxford.jpg" alt="Oxfords" />
+      <p>Oxfords</p>
+    </div>
+    <div class="item">
+      <img src="assets/img/shirt.jpg" alt="Shirts" />
+      <p>Shirts</p>
+    </div>
+    <div class="item">
+      <img src="assets/img/accessories.jpg" alt="Accessories" />
+      <p>Accessories</p>
+    </div>
+  </div>
+</section>
 
-    <section class="about">
-    <h2>About Us</h2>
-    <p>Spiiqs Men is Zambia’s destination for premium men’s fashion — classic suits, handcrafted oxford shoes, dress shirts and accessories that define refined masculinity.</p>
-  </section>
+<!-- ABOUT US -->
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>Spiiqs Men is Zambia’s destination for premium men’s fashion — classic suits, handcrafted oxford shoes, dress shirts, and accessories that define refined masculinity.</p>
+</section>
 
-  <section class="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:spiiqsmen@gmail.com">spiiqsmen@gmail.com</a></p>
-    <p>Mobile: <a href="tel:+260972309497">+260972309497</a></p>
-  </section>
+<!-- GOLD LINE SEPARATOR -->
+<hr class="gold-line">
 
-  <script>
-  const menuBtn = document.querySelector('.menu-btn');
-  const sideMenu = document.querySelector('.side-menu');
-  
-  // Create overlay dynamically
-  const overlay = document.createElement('div');
-  overlay.classList.add('menu-overlay');
-  document.body.appendChild(overlay);
+<!-- CONTACT US -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:spiiqsmen@gmail.com">spiiqsmen@gmail.com</a></p>
+  <p>Mobile: <a href="tel:+260972309497">+260972309497</a></p>
+</section>
 
-  menuBtn.addEventListener('click', () => {
-    sideMenu.classList.toggle('active');
-    overlay.classList.toggle('active');
-  });
-
-  overlay.addEventListener('click', () => {
-    sideMenu.classList.remove('active');
-    overlay.classList.remove('active');
-  });
-</script>
-</body>
-</html>
-
-<script>
-  // Fade-in effect for catalog items when scrolling
-  const items = document.querySelectorAll('.catalog .item');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  items.forEach(item => observer.observe(item));
-</script>
-
+<!-- FOOTER -->
 <footer>
   <div class="footer-content">
     <p>© 2025 SPIIQS MEN. All Rights Reserved.</p>
@@ -117,3 +89,69 @@
     </div>
   </div>
 </footer>
+
+<!-- JAVASCRIPT -->
+<script>
+  // MENU TOGGLE
+  const menuBtn = document.querySelector('.menu-btn');
+  const sideMenu = document.querySelector('.side-menu');
+
+  // Create overlay dynamically
+  const overlay = document.createElement('div');
+  overlay.classList.add('menu-overlay');
+  document.body.appendChild(overlay);
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    sideMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+  });
+
+  overlay.addEventListener('click', () => {
+    menuBtn.classList.remove('open');
+    sideMenu.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('.side-menu a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 60,
+          behavior: 'smooth'
+        });
+        sideMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        menuBtn.classList.remove('open');
+      }
+    });
+  });
+
+  // Active link on scroll
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".side-menu a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
