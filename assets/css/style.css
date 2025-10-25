@@ -1,70 +1,204 @@
-/* ===== SEARCH OVERLAY ===== */
-.search-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease;
-  z-index: 2000;
-}
-.search-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-.search-container {
-  background: linear-gradient(to right, #16302B, #1E3E36);
-  border: 1px solid #D4AF37;
-  border-radius: 10px;
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 0 15px rgba(212,175,55,0.3);
-}
-.search-container input {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #fff;
-  font-size: 16px;
-  width: 220px;
-}
-.search-container input::placeholder {
-  color: rgba(255,255,255,0.6);
-}
-#search-close {
-  background: none;
-  border: none;
-  color: #D4AF37;
-  font-size: 18px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-#search-close:hover {
-  transform: rotate(90deg);
-  color: #FFD700;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SPIIQS MEN | Luxury Men's Fashion</title>
 
-/* ===== SEARCH + MENU GLOW ===== */
-.search-btn i, .menu-btn span {
-  filter: drop-shadow(0 0 3px rgba(212,175,55,0.6));
-  transition: all 0.3s ease;
-}
-.search-btn:hover i, .menu-btn:hover span {
-  filter: drop-shadow(0 0 8px #FFD700);
-}
+  <!-- favicon (optional) -->
+  <link rel="icon" type="image/png" href="assets/img/transparentlogo.png" />
 
-/* ===== HIGHLIGHT SEARCH MATCH ===== */
-.highlight {
-  color: #FFD700;
-  text-shadow: 0 0 8px rgba(255,215,0,0.9);
-  font-weight: 600;
-}
+  <!-- main stylesheet (must exist at assets/css/style.css) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="side-menu">
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="navbar">
+      <button class="menu-btn" aria-label="Open menu"><span></span><span></span></button>
+      <img src="assets/img/transparentlogo.png" alt="SPIIQS MEN" class="logo">
+      <button class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+    </div>
+  </header>
+
+  <!-- SEARCH OVERLAY -->
+  <div class="search-overlay">
+    <div class="search-container">
+      <input id="search-input" type="text" placeholder="Search SPIIQS MEN…" />
+      <button id="search-close" aria-label="Close search"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <section id="home" class="catalog">
+      <h2>SPIIQS MEN</h2>
+      <div class="grid">
+        <div class="item" data-name="suits">
+          <img src="assets/img/navy.jpg" alt="Suits">
+          <p>SUITS</p>
+        </div>
+        <div class="item" data-name="oxfords">
+          <img src="assets/img/oxford.jpg" alt="Oxfords">
+          <p>OXFORDS</p>
+        </div>
+        <div class="item" data-name="shirts">
+          <img src="assets/img/shirt.jpg" alt="Shirts">
+          <p>SHIRTS</p>
+        </div>
+        <div class="item" data-name="accessories">
+          <img src="assets/img/accessories.jpg" alt="Accessories">
+          <p>ACCESSORIES</p>
+        </div>
+      </div>
+      <p class="no-results">No results found.</p>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About Us</h2>
+      <p>SPIIQS MEN is Zambia’s destination for premium men’s fashion — classic suits, handcrafted oxford shoes, dress shirts and accessories that define refined masculinity.</p>
+    </section>
+
+    <hr class="gold-line">
+
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:spiiqsmen@gmail.com">spiiqsmen@gmail.com</a></p>
+      <p>Mobile: <a href="tel:+260972309497">+260972309497</a></p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 SPIIQS MEN. All Rights Reserved.</p>
+      <div class="socials">
+        <a href="https://instagram.com/spiiqsmen"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/spiiqsmen"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/260972309497"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // DOM refs
+    const menuBtn = document.querySelector('.menu-btn');
+    const sideMenu = document.querySelector('.side-menu');
+    const searchBtn = document.querySelector('.search-btn');
+    const searchOverlay = document.querySelector('.search-overlay');
+    const searchClose = document.querySelector('#search-close');
+    const searchInput = document.querySelector('#search-input');
+    const catalogItems = document.querySelectorAll('.catalog .item');
+    const noResults = document.querySelector('.no-results');
+
+    // Overlay for menu
+    const overlay = document.createElement('div');
+    overlay.classList.add('menu-overlay');
+    document.body.appendChild(overlay);
+
+    // Menu toggle
+    menuBtn.addEventListener('click', () => {
+      sideMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+      menuBtn.classList.toggle('open');
+    });
+    overlay.addEventListener('click', () => {
+      sideMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      menuBtn.classList.remove('open');
+    });
+
+    // Smooth scroll links
+    document.querySelectorAll('.side-menu a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+          sideMenu.classList.remove('active');
+          overlay.classList.remove('active');
+          menuBtn.classList.remove('open');
+        }
+      });
+    });
+
+    // Active link on scroll
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".side-menu a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (scrollY >= sectionTop) current = section.getAttribute("id");
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
+      });
+    });
+
+    // Search overlay open/close
+    searchBtn.addEventListener('click', () => {
+      searchOverlay.classList.add('active');
+      searchInput.focus();
+    });
+    searchClose.addEventListener('click', () => {
+      searchOverlay.classList.remove('active');
+      searchInput.value = '';
+      resetSearch();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        searchOverlay.classList.remove('active');
+        searchInput.value = '';
+        resetSearch();
+      }
+    });
+
+    // Live search + highlight
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+      catalogItems.forEach(item => {
+        const name = item.dataset.name.toLowerCase();
+        const label = item.querySelector('p');
+        label.innerHTML = label.textContent; // reset
+        if (name.includes(query)) {
+          item.style.display = 'block';
+          visibleCount++;
+          if (query) {
+            const regex = new RegExp(`(${query})`, 'gi');
+            label.innerHTML = label.textContent.replace(regex, "<span class='highlight'>$1</span>");
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+
+    function resetSearch() {
+      catalogItems.forEach(item => {
+        item.style.display = 'block';
+        const label = item.querySelector('p');
+        label.innerHTML = label.textContent;
+      });
+      noResults.style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
