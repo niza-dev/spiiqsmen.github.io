@@ -1,6 +1,9 @@
+/* ===== GLOBAL STYLES ===== */
 body {
-  background-color: #16302B;   /* rolex green background */
-  color: #D4AF37;              /* gold text */
+  margin: 0;
+  padding-top: 50px;
+  background-color: #16302B;
+  color: #D4AF37;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -10,91 +13,20 @@ a {
 }
 
 a:hover {
-  color: #FFD700;              /* brighter gold on hover */
+  color: #FFD700;
 }
 
-header {
-  background: #000;
-  color: #D4AF37;
-  border-bottom: 1px solid #D4AF37;
-}
-
-header:hover {
-  background: linear-gradient(to right, #1E3E36, #16302B);
-  transition: background 1s ease;
-}
-
-button, .btn {
-  background: #D4AF37;
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-button:hover, .btn:hover {
-  background: #FFD700;
-}
-
-.hero {
-  background: url('../img/hero.jpg') center/cover no-repeat;
-  color: white;
-  padding: 6rem 1rem;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
-  margin: 0;
-}
-
-.about, .catalog, .contact {
-  padding: 3rem 1rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-.catalog .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.catalog img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-footer {
-  background: #111;
-  color: #eee;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-/* Gold divider line between About Us and Contact Us */
-.gold-line {
-  border: none;
-  height: 2px;
-  background: #A38560; /* Gold color */
-  width: 80%;
-  margin: 40px auto;
-  border-radius: 2px;
-}
-
-/* ===== LUXURY GRADIENT HEADER ===== */
+/* ===== HEADER ===== */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to right, #16302B, #1E3E36); /* subtle luxury gradient */
+  background: linear-gradient(to right, #16302B, #1E3E36);
   border-bottom: 1px solid #D4AF37;
   padding: 10px 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* optional subtle depth */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .navbar {
@@ -104,33 +36,49 @@ header {
   position: relative;
 }
 
-/* ===== LUXURY MINI MENU ICON (to match gold search icon) ===== */
+/* ===== MENU ICON WITH GLOW + ANIMATION ===== */
 .menu-btn {
   position: absolute;
   left: 20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 16px;   /* smaller width */
-  height: 10px;  /* smaller height */
+  width: 22px;
+  height: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: none;
   border: none;
-  padding: 0;
   cursor: pointer;
   z-index: 2000;
+  transition: transform 0.3s ease;
 }
 
 .menu-btn span {
   display: block;
   width: 100%;
-  height: 1px;  /* thinner line */
+  height: 2px;
   background-color: #D4AF37;
   border-radius: 2px;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+  transition: all 0.4s ease;
 }
 
-/* ===== Search button ===== */
+/* Hover glow pulse */
+.menu-btn:hover span {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.9);
+}
+
+/* Transform to X */
+.menu-btn.open span:first-child {
+  transform: rotate(45deg) translate(3px, 3px);
+}
+
+.menu-btn.open span:last-child {
+  transform: rotate(-45deg) translate(3px, -3px);
+}
+
+/* ===== SEARCH BUTTON ===== */
 .search-btn {
   position: absolute;
   right: 20px;
@@ -141,26 +89,92 @@ header {
   cursor: pointer;
 }
 
-/* ===== Logo ===== */
+/* ===== LOGO ===== */
 .logo {
-  height: 57px;
+  height: 55px;
   width: auto;
   display: block;
   margin: 0 auto;
 }
 
-/* Add spacing for fixed header */
-body {
-  margin: 0;
-  padding-top: 40px;
+/* ===== SIDE MENU WITH FADE-GLOW SLIDE ===== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -230px;
+  width: 230px;
+  height: 100%;
+  background-color: rgba(22, 48, 43, 0.98);
+  backdrop-filter: blur(6px);
+  border-right: 1px solid rgba(212, 175, 55, 0.3);
+  padding-top: 100px;
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  box-shadow: 5px 0 15px rgba(212, 175, 55, 0.1);
+  z-index: 1500;
+  opacity: 0;
 }
 
-/* ===== CATALOG SECTION ===== */
+.side-menu.active {
+  left: 0;
+  opacity: 1;
+  box-shadow: 5px 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu li {
+  margin: 25px 0;
+  text-align: center;
+}
+
+.side-menu a {
+  color: #D4AF37;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.side-menu a:hover {
+  color: #FFD700;
+  text-shadow: 0 0 8px #FFD700;
+}
+
+.side-menu a.active {
+  color: #fff;
+  text-shadow: 0 0 10px #D4AF37;
+  font-weight: 600;
+}
+
+/* ===== OVERLAY ===== */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 1400;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== CATALOG ===== */
 .catalog {
   background: url('assets/img/bgpattern.jpg') no-repeat center center/cover;
   background-attachment: fixed;
   color: #fff;
-  padding: 40px 0 40px 0; /* top, right, bottom, left */
+  padding: 60px 20px;
 }
 
 .catalog h2 {
@@ -168,18 +182,16 @@ body {
   font-size: 28px;
   color: #D4AF37;
   letter-spacing: 2px;
-  margin-bottom: 30px; /* matches the visual gap below */
+  margin-bottom: 30px;
   text-transform: uppercase;
 }
 
-/* Grid layout for items */
 .catalog .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 10px;
+  gap: 15px;
 }
 
-/* Each item card */
 .catalog .item {
   position: relative;
   overflow: hidden;
@@ -187,16 +199,17 @@ body {
   border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-/* Images slightly blurred & darkened */
 .catalog .item img {
   width: 100%;
-  height: auto;
-  display: block;
-  filter: brightness(70%) blur(0px); /* darkness + soft blur */
+  filter: brightness(80%);
   transition: all 0.4s ease;
 }
 
-/* Category name centered on image */
+.catalog .item:hover img {
+  filter: brightness(100%);
+  transform: scale(1.03);
+}
+
 .catalog .item p {
   position: absolute;
   top: 50%;
@@ -212,95 +225,29 @@ body {
   border-radius: 6px;
 }
 
-/* Hover effect - image becomes sharper & brighter */
-.catalog .item:hover img {
-  filter: brightness(80%) blur(0);
-  transform: scale(1.03);
-}
-
-/* ===== FADE-IN ANIMATION FOR CATALOG ===== */
-
-/* Starting hidden */
-.catalog .item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-/* When visible */
-.catalog .item.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Optional: make it fade in one by one */
-.catalog .item:nth-child(1) { transition-delay: 0.1s; }
-.catalog .item:nth-child(2) { transition-delay: 0.25s; }
-.catalog .item:nth-child(3) { transition-delay: 0.4s; }
-
-/* ===== SLIDING SIDE MENU ===== */
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: -220px; /* hidden off-screen initially */
-  width: 220px;
-  height: 100%;
-  background-color: #16302B;
-  border-right: 1px solid rgba(212, 175, 55, 0.3);
-  padding-top: 100px;
-  transition: left 0.4s ease;
-  z-index: 1500;
-}
-
-.side-menu.active {
-  left: 0;
-}
-
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.side-menu li {
-  margin: 25px 0;
+/* ===== ABOUT & CONTACT ===== */
+.about, .contact {
   text-align: center;
-}
-
-.side-menu a {
-  text-decoration: none;
-  color: #D4AF37;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  transition: color 0.3s;
-}
-
-.side-menu a:hover {
   color: #fff;
+  background-color: #0d1a18;
+  padding: 80px 20px;
 }
 
-/* Overlay behind menu */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease;
-  z-index: 1400;
+.about h2, .contact h2 {
+  color: #D4AF37;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
-.menu-overlay.active {
-  opacity: 0;
-  visibility: visible;
+/* ===== GOLD LINE ===== */
+.gold-line {
+  border: none;
+  height: 2px;
+  background: #A38560;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
 /* ===== FOOTER ===== */
@@ -313,15 +260,6 @@ footer {
   border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-footer p {
-  margin-bottom: 15px;
-  color: #ccc;
-}
-
-footer .socials {
-  margin-top: 10px;
-}
-
 footer .socials a {
   color: #D4AF37;
   margin: 0 10px;
@@ -332,30 +270,4 @@ footer .socials a {
 footer .socials a:hover {
   color: #fff;
   text-shadow: 0 0 5px #D4AF37;
-}
-
-/* ===== ABOUT & CONTACT SECTIONS ===== */
-.about, 
-.contact {
-  text-align: center;
-  color: #fff;
-  background-color: #0d1a18;
-  padding: 80px 20px;
-}
-
-.about h2, 
-.contact h2 {
-  color: #D4AF37;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.about p, 
-.contact p {
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.7;
-  font-size: 15px;
-  color: #ccc;
 }
