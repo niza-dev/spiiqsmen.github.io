@@ -46,30 +46,31 @@
 
 <!-- ===== MAIN CONTENT ===== -->
 <section id="home" class="catalog">
-  <h2>Spiiqs Men</h2>
+  <h2>SPIIQS MEN</h2>
   <div class="grid">
-    <div class="item">
+    <div class="item" data-name="suits">
       <img src="assets/img/navy.jpg" alt="Suits" />
-      <p>Suits</p>
+      <p>SUITS</p>
     </div>
-    <div class="item">
+    <div class="item" data-name="oxfords shoes">
       <img src="assets/img/oxford.jpg" alt="Oxfords" />
-      <p>Oxfords</p>
+      <p>OXFORDS</p>
     </div>
-    <div class="item">
+    <div class="item" data-name="shirts">
       <img src="assets/img/shirt.jpg" alt="Shirts" />
-      <p>Shirts</p>
+      <p>SHIRTS</p>
     </div>
-    <div class="item">
+    <div class="item" data-name="accessories">
       <img src="assets/img/accessories.jpg" alt="Accessories" />
-      <p>Accessories</p>
+      <p>ACCESSORIES</p>
     </div>
   </div>
+  <p class="no-results">No results found.</p>
 </section>
 
 <section id="about" class="about">
   <h2>About Us</h2>
-  <p>Spiiqs Men is Zambia’s destination for premium men’s fashion — classic suits, handcrafted oxford shoes, dress shirts and accessories that define refined masculinity.</p>
+  <p>SPIIQS MEN is Zambia’s destination for premium men’s fashion — classic suits, handcrafted oxford shoes, dress shirts and accessories that define refined masculinity.</p>
 </section>
 
 <hr class="gold-line">
@@ -99,20 +100,23 @@ const sideMenu = document.querySelector('.side-menu');
 const searchBtn = document.querySelector('.search-btn');
 const searchOverlay = document.querySelector('.search-overlay');
 const searchClose = document.querySelector('#search-close');
+const searchInput = document.querySelector('#search-input');
+const catalogItems = document.querySelectorAll('.catalog .item');
+const noResults = document.querySelector('.no-results');
 
-// Overlay for side menu
+// Create overlay behind menu
 const overlay = document.createElement('div');
 overlay.classList.add('menu-overlay');
 document.body.appendChild(overlay);
 
-// Menu toggle
+// Toggle menu
 menuBtn.addEventListener('click', () => {
   sideMenu.classList.toggle('active');
   overlay.classList.toggle('active');
   menuBtn.classList.toggle('open');
 });
 
-// Close menu when overlay clicked
+// Close menu when clicking overlay
 overlay.addEventListener('click', () => {
   sideMenu.classList.remove('active');
   overlay.classList.remove('active');
@@ -125,9 +129,7 @@ document.querySelectorAll('.side-menu a[href^="#"]').forEach(link => {
     e.preventDefault();
     const target = document.querySelector(link.getAttribute('href'));
     if (target) {
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
+      setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
       sideMenu.classList.remove('active');
       overlay.classList.remove('active');
       menuBtn.classList.remove('open');
@@ -135,40 +137,72 @@ document.querySelectorAll('.side-menu a[href^="#"]').forEach(link => {
   });
 });
 
-// Active link highlight
+// Active menu highlight
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".side-menu a");
 window.addEventListener("scroll", () => {
   let current = "";
   sections.forEach(section => {
     const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.clientHeight;
-    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-      current = section.getAttribute("id");
-    }
+    if (scrollY >= sectionTop) current = section.getAttribute("id");
   });
   navLinks.forEach(link => {
     link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
+    if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
   });
 });
 
-// ===== Search functionality =====
+// ===== SEARCH OVERLAY =====
 searchBtn.addEventListener("click", () => {
   searchOverlay.classList.add("active");
-  document.getElementById("search-input").focus();
+  searchInput.focus();
 });
-
 searchClose.addEventListener("click", () => {
   searchOverlay.classList.remove("active");
+  searchInput.value = "";
+  resetSearch();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    searchOverlay.classList.remove("active");
+    searchInput.value = "";
+    resetSearch();
+  }
 });
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") searchOverlay.classList.remove("active");
+// ===== LIVE SEARCH + HIGHLIGHT =====
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase().trim();
+  let visibleCount = 0;
+
+  catalogItems.forEach(item => {
+    const name = item.dataset.name.toLowerCase();
+    const label = item.querySelector("p");
+    label.innerHTML = label.textContent; // reset text
+
+    if (name.includes(query)) {
+      item.style.display = "block";
+      visibleCount++;
+      if (query) {
+        const regex = new RegExp(`(${query})`, "gi");
+        label.innerHTML = label.textContent.replace(regex, `<span class='highlight'>$1</span>`);
+      }
+    } else {
+      item.style.display = "none";
+    }
+  });
+
+  noResults.style.display = visibleCount === 0 ? "block" : "none";
 });
+
+function resetSearch() {
+  catalogItems.forEach(item => {
+    item.style.display = "block";
+    const label = item.querySelector("p");
+    label.innerHTML = label.textContent;
+  });
+  noResults.style.display = "none";
+}
 </script>
-
 </body>
 </html>
