@@ -271,3 +271,12 @@ footer .socials a:hover {
   color: #fff;
   text-shadow: 0 0 5px #D4AF37;
 }
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #D4AF37, transparent);
+  margin: 0 auto;
+  opacity: 0.7;
+}
