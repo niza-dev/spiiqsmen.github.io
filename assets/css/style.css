@@ -131,7 +131,7 @@ header {
   background: none;
   border: none;
   color: #D4AF37;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
 }
 
@@ -284,13 +284,13 @@ html {
 footer .socials {
   display: flex;
   justify-content: center;
-  gap: 20px; /* spacing between icons */
+  gap: 22px; /* spacing between icons */
   margin-top: 15px;
 }
 
 footer .socials a {
   color: #D4AF37;
-  font-size: 22px; /* icon size */
+  font-size: 24px; /* icon size */
   transition: all 0.3s ease;
 }
 
