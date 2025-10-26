@@ -78,8 +78,21 @@ header {
   right: 20px;
   background: none;
   border: none;
+  color: #D4AF37 !important;   /* Force gold color */
+  font-size: 20px;
   cursor: pointer;
-  filter: drop-shadow(0 0 5px #D4AF37);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 6px #D4AF37); /* gold glow */
+}
+
+.search-btn i {
+  color: #D4AF37 !important;  /* Ensures icon stays gold */
+  filter: drop-shadow(0 0 6px #D4AF37);
+}
+
+.search-btn:hover i {
+  color: #FFD700;
+  transform: scale(1.1);
 }
 
 /* ===== SEARCH BAR ===== */
