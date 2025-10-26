@@ -136,18 +136,23 @@ header {
 }
 
 /* ===== SIDE MENU ===== */
-.side-menu {
+.sidebar {
   position: fixed;
   top: 0;
-  left: -230px;
-  width: 230px;
+  left: -250px;
+  width: 250px;
   height: 100%;
-  background-color: #16302B;
-  border-right: 2px solid #D4AF37;
-  padding-top: 100px;
-  transition: left 0.4s ease;
-  z-index: 1500;
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.4);
+  background: rgba(22, 48, 43, 0.98);
+  color: white;
+  padding: 80px 20px 20px;
+  transition: left 0.4s ease, border-right 0.4s ease;
+  border-right: 2px solid transparent; /* hidden when closed */
+}
+
+/* When sidebar is open */
+.sidebar.open {
+  left: 0;
+  border-right: 2px solid #D4AF37; /* gold line appears */
 }
 
 .side-menu.active {
