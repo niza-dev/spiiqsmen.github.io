@@ -136,42 +136,48 @@ header {
 }
 
 /* ===== SIDE MENU ===== */
+/* ===== SIDEBAR ===== */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -250px;
+  left: -260px; /* completely hidden */
   width: 250px;
-  height: 100%;
-  background: rgba(22, 48, 43, 0.98);
+  height: 100vh;
+  background: #16302B;
   color: white;
-  padding: 80px 20px 20px;
-  transition: left 0.4s ease, border-right 0.4s ease;
-  border-right: 2px solid transparent; /* hidden when closed */
+  padding: 80px 20px;
+  transition: left 0.4s ease;
+  z-index: 9999; /* sits on top only when open */
+  border-right: 2px solid transparent;
+  overflow-y: auto;
 }
 
-/* When sidebar is open */
+/* Sidebar when open */
 .sidebar.open {
   left: 0;
-  border-right: 2px solid #D4AF37; /* gold line appears */
+  border-right: 2px solid #D4AF37;
 }
 
-.side-menu.active {
-  left: 0;
+/* Sidebar items */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.side-menu a {
-  display: block;
-  color: #D4AF37;
-  padding: 15px 25px;
+.sidebar ul li {
+  margin: 25px 0;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
   font-size: 18px;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-.side-menu a:hover {
-  background-color: #1E4B42;
-  color: white;
-  padding-left: 35px;
+.sidebar ul li a:hover {
+  color: #D4AF37;
 }
 
 /* ===== LOGO ===== */
