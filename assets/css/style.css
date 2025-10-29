@@ -251,6 +251,15 @@ header {
   color: #ccc;
 }
 
+/* ===== SCROLL STOP POINT ===== */
+#about {
+  scroll-margin-top: 100px; /* move the stop point 100px lower */
+}
+
+#home {
+  scroll-margin-top: 50px; /* adjust separately if you want */
+}
+
 /* ===== SOCIAL ICONS (under Contact Us) ===== */
 .contact .socials {
   margin-top: 35px; /* space above icons */
