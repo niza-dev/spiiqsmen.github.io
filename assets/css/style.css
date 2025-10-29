@@ -253,11 +253,11 @@ header {
 
 /* ===== SCROLL STOP POINT ===== */
 #about {
-  scroll-margin-top: 100px; /* move the stop point 100px lower */
+  scroll-margin-top: 50px; /* move the stop point 100px lower */
 }
 
 #home {
-  scroll-margin-top: 50px; /* adjust separately if you want */
+  scroll-margin-top: 100px; /* adjust separately if you want */
 }
 
 /* ===== SOCIAL ICONS (under Contact Us) ===== */
