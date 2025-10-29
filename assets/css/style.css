@@ -124,7 +124,7 @@ header {
   background: #1E3E36;
   padding: 100px 20px;
   transition: left 0.4s ease;
-  z-index: 1200;
+  z-index: 1500;
   border-right: 2px solid transparent;
 }
 
