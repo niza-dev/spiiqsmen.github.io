@@ -251,30 +251,36 @@ header {
   color: #ccc;
 }
 
+/* ===== SOCIAL ICONS (under Contact Us) ===== */
+.contact .socials {
+  margin-top: 35px; /* space above icons */
+}
+
+.contact .socials a {
+  color: #D4AF37;
+  margin: 0 15px;
+  font-size: 22px;
+  transition: all 0.3s ease;
+}
+
+.contact .socials a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #D4AF37;
+}
+
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
   background: linear-gradient(to right, #0d1a18, #16302B);
   color: #D4AF37;
-  padding: 40px 0 30px;
+  padding: 15px 0; /* smaller height */
   border-top: 1px solid rgba(212, 175, 55, 0.3);
+  font-size: 14px;
 }
 
 footer p {
-  margin-bottom: 30px; /* increase or decrease this value for spacing */
+  margin: 0; /* no extra gap needed now */
   color: #ccc;
-}
-
-footer .socials a {
-  color: #D4AF37;
-  margin: 0 12px;
-  font-size: 22px;
-  transition: all 0.3s ease;
-}
-
-footer .socials a:hover {
-  color: #fff;
-  text-shadow: 0 0 5px #D4AF37;
 }
 
 /* ===== SECTION DIVIDER ===== */
