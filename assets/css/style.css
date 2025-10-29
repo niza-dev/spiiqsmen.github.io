@@ -253,7 +253,7 @@ header {
 
 /* ===== SCROLL STOP POINT ===== */
 #about {
-  scroll-margin-top: 40px; /* move the stop point 100px lower */
+  scroll-margin-top: 30px; /* move the stop point 100px lower */
 }
 
 #home {
