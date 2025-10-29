@@ -130,7 +130,7 @@ header {
 }
 
 .sidebar.open {
-  left: 0;
+  left: 40px;
   pointer-events: auto;
   border-right: 2px solid #D4AF37;
 }
